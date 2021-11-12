@@ -13,6 +13,19 @@ import schema from './Validation/formSchema';
 // importing styles
 import styled from 'styled-components';
 
+const MainStyles = styled.div`
+   align-items: center;
+   background-color: 'orange';
+   border-radius: 4px;
+   color: 'red' ;
+   display: flex;
+   font-size: 3rem;
+   justify-content: center;
+   margin: 1% 0;
+   padding: 1% 0;
+   width: 40%;
+  
+`
 
 const pizzaOptions = {
   name: '',
@@ -72,7 +85,7 @@ const App = () => {
 
 
   return (
-    <>
+    <MainStyles>
   
       <nav>
         <h1>Lambda Eats</h1>
@@ -95,7 +108,7 @@ const App = () => {
           errors={formErrors} 
         />
       </Route>
-    </>
+    </MainStyles>
   );
 };
 export default App;

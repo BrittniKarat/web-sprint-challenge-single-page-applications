@@ -39,7 +39,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 1. How would you explain form validation to someone who has never programmed before?
         Validation is a set of standards in the program that acts as the 'red tape' of an application that you have to get through to do something on the site.
 1. In 1-2 sentences, define end to end testing.
-        
+        End to end testing is the process of using tests to mimic the users movements on the app. It simulates actions such as text input and button clicks to test if the actions would be successful
 
 ## Instructions
 
