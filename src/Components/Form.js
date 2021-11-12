@@ -13,14 +13,14 @@ export default function Form (props){
             <label> Who's pizza is this?
              <input 
               type='text'
-              value={formValues.email}
+              value={formValues.name}
               name='name'
               onChange={change}
-              placeholder='name'
+              placeholder='Name'
             />
             </label>
             <label> What size are we getting?
-              <select name='size' value={formValues.size} OnChange={change}id='size-dropdown'>
+              <select name='size' value={formValues.size} onChange={change}id='size-dropdown'>
                 <option value='personal'>Personal</option>
                 <option value='small'>Small</option>
                 <option value='medium'>Medium</option>
