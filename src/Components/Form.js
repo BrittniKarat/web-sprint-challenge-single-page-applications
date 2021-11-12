@@ -3,12 +3,13 @@ import React from 'react';
 
 
 export default function Form (props){
-  const { submit, change, formValues } = props;
+  const { formValues, change, submit, disabled, errors } = props;
 
     return(
       <div> 
         <h2> Create your pizza </h2>
         <form id='pizza-form' onSubmit={submit}>
+        <div className='errors'>{errors.name}</div>
             <label> Who's pizza is this?
              <input 
               type='text'
@@ -18,6 +19,18 @@ export default function Form (props){
               placeholder='name'
             />
             </label>
+            <label> What size are we getting?
+              <select name='size' value={formValues.size} OnChange={change}id='size-dropdown'>
+                <option value='personal'>Personal</option>
+                <option value='small'>Small</option>
+                <option value='medium'>Medium</option>
+                <option value='large'>Large</option>
+                <option value='party'>Party</option>
+                <option value='king'>King</option>
+              </select>
+            </label>
+            <div> 
+              <h3>Toppings</h3>
             <label> Mushrooms
                 <input
              type='checkbox'
@@ -74,9 +87,10 @@ export default function Form (props){
              onChange={change}
              />
              </label>
-             <label>
+             </div>
+             <label> Special Requests
              <input 
-              id='name-input'
+              id='special-text'
               type='text'
               value={formValues.special}
               name='special'
@@ -86,7 +100,7 @@ export default function Form (props){
             </label>
              
         <div>
-            <button disabled={disabled}> Submit </button>
+            <button id='order-button' disabled={disabled}>Add to Order </button>
         </div>
        </form>
 
