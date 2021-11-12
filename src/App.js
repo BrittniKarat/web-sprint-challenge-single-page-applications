@@ -13,6 +13,7 @@ import schema from './Validation/formSchema';
 // importing styles
 import styled from 'styled-components';
 
+
 const pizzaOptions = {
   name: '',
   size: '',
