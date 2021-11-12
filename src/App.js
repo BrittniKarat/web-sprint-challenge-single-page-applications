@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, Route } from 'react-router-dom';
 
 // Importing components
-import Form from './Components/Form'
-import Home from './Components/home'
+import Form from './Components/Form';
+import Home from './Components/home';
 
 // importing Schema, axios, and yup
 import axios from 'axios';
@@ -35,17 +35,17 @@ const App = () => {
 
   const postPizza = newPizza => {
     axios.post(`https://reqres.in/api/orders`, newPizza)
-      .then(res =>{ setPizzas([...pizzas, res.data]) ;console.log(res.data)})
+      .then(res =>{ setPizzas([...pizzas, res.data])})
       .catch(err => console.error(err))
       .finally(() => setFormValues(pizzaOptions))
-  }
+  };
 
   const validate = (name, value) => {
     yup.reach(schema, name)
       .validate(value)
       .then(() =>  setFormErrors({...formErrors, [name]: ''}))
       .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}))
-  }
+  };
 
   const inputChange = (name, value) => {
     validate(name, value);
@@ -60,7 +60,7 @@ const App = () => {
       special: formValues.special.trim(),
     }
     postPizza(newPizza);
-  }
+  };
 
   useEffect(() => {
     schema.isValid(formValues).then(valid => setDisabled(!valid))
