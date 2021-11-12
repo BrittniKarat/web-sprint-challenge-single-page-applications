@@ -23,6 +23,7 @@ export default function Form (props){
         <div className='errors'>{errors.name}</div>
             <label> Who's pizza is this?
              <input 
+              id='name-input'
               type='text'
               value={formValues.name}
               name='name'

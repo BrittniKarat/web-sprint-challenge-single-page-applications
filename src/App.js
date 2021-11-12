@@ -9,7 +9,6 @@ import Home from './Components/home'
 import axios from 'axios';
 import * as yup from 'yup';
 import schema from './Validation/formSchema';
-import { findRenderedDOMComponentWithClass } from "react-dom/test-utils";
 
 const pizzaOptions = {
   name: '',
@@ -81,6 +80,7 @@ const App = () => {
 
       <Route exact path='/'>
         <Home />
+        <Link to="/pizza" id='order-pizza'>Pizza Plant</Link>
       </Route>
       <Route path='/pizza'>
         <Form 
