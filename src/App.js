@@ -9,6 +9,7 @@ import Home from './Components/home'
 import axios from 'axios';
 import * as yup from 'yup';
 import schema from './Validation/formSchema';
+import { findRenderedDOMComponentWithClass } from "react-dom/test-utils";
 
 const pizzaOptions = {
   name: '',
@@ -28,9 +29,17 @@ const initialFormErrors={
 };
 
 const App = () => {
+  const [pizzas, setPizzas] = useState([])
   const [formValues, setFormValues] = useState(pizzaOptions);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
+
+  const postPizza = newPizza => {
+    axios.post(`https://reqres.in/api/orders`, newPizza)
+      .then(res =>{ setPizzas([...pizzas, res.data]) ;console.log(res.data)})
+      .catch(err => console.error(err))
+      .finally(() => setFormValues(pizzaOptions))
+  }
 
   const validate = (name, value) => {
     yup.reach(schema, name)
@@ -38,7 +47,6 @@ const App = () => {
       .then(() =>  setFormErrors({...formErrors, [name]: ''}))
       .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}))
   }
-
 
   const inputChange = (name, value) => {
     validate(name, value);
@@ -52,9 +60,9 @@ const App = () => {
       toppings: ['mushrooms', 'blackOlives', 'onions', 'greenPeppers', 'spinach', 'zucchini', 'pineapple'].filter(ea => !!formValues[ea]),
       special: formValues.special.trim(),
     }
-    setFormValues([...formValues, newPizza]);
+    postPizza(newPizza);
   }
-  
+
   useEffect(() => {
     schema.isValid(formValues).then(valid => setDisabled(!valid))
   }, [formValues])

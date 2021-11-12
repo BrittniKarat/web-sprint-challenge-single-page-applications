@@ -5,22 +5,33 @@ import React from 'react';
 export default function Form (props){
   const { formValues, change, submit, disabled, errors } = props;
 
+  const onSubmit = evt => {
+    evt.preventDefault()
+    submit()
+  }
+
+  const onChange = evt => {
+    const { name, value, checked, type } = evt.target
+    const realValue = type === 'checkbox' ? checked : value;
+    change(name, realValue)
+  }
+
     return(
       <div> 
         <h2> Create your pizza </h2>
-        <form id='pizza-form' onSubmit={submit}>
+        <form id='pizza-form' onSubmit={onSubmit}>
         <div className='errors'>{errors.name}</div>
             <label> Who's pizza is this?
              <input 
               type='text'
               value={formValues.name}
               name='name'
-              onChange={change}
+              onChange={onChange}
               placeholder='Name'
             />
             </label>
             <label> What size are we getting?
-              <select name='size' value={formValues.size} onChange={change}id='size-dropdown'>
+              <select name='size' value={formValues.size} onChange={onChange} id='size-dropdown'>
                 <option value='personal'>Personal</option>
                 <option value='small'>Small</option>
                 <option value='medium'>Medium</option>
@@ -36,7 +47,7 @@ export default function Form (props){
              type='checkbox'
              name='mushrooms'
              checked={formValues.mushrooms}
-             onChange={change}
+             onChange={onChange}
              />
              </label>
              <label> Black Olives
@@ -44,7 +55,7 @@ export default function Form (props){
              type='checkbox'
              name='blackOlives'
              checked={formValues.blackOlives}
-             onChange={change}
+             onChange={onChange}
              />
              </label>
              <label> Onions
@@ -52,7 +63,7 @@ export default function Form (props){
              type='checkbox'
              name='onions'
              checked={formValues.onions}
-             onChange={change}
+             onChange={onChange}
              />
              </label>
              <label> Green peppers
@@ -60,7 +71,7 @@ export default function Form (props){
              type='checkbox'
              name='greenPeppers'
              checked={formValues.greenPeppers}
-             onChange={change}
+             onChange={onChange}
              />
              </label>
              <label> Spinach
@@ -68,7 +79,7 @@ export default function Form (props){
              type='checkbox'
              name='spinach'
              checked={formValues.spinach}
-             onChange={change}
+             onChange={onChange}
              />
              </label>
              <label> Zucchini 
@@ -76,7 +87,7 @@ export default function Form (props){
              type='checkbox'
              name='zucchini'
              checked={formValues.zucchini}
-             onChange={change}
+             onChange={onChange}
              />
              </label>
              <label> Pineapple
@@ -84,7 +95,7 @@ export default function Form (props){
              type='checkbox'
              name='pineapple'
              checked={formValues.pineapple}
-             onChange={change}
+             onChange={onChange}
              />
              </label>
              </div>
@@ -94,7 +105,7 @@ export default function Form (props){
               type='text'
               value={formValues.special}
               name='special'
-              onChange={change}
+              onChange={onChange}
               placeholder='Special Requests'
               />
             </label>
