@@ -54,6 +54,10 @@ const App = () => {
     }
     setFormValues([...formValues, newPizza]);
   }
+  
+  useEffect(() => {
+    schema.isValid(formValues).then(valid => setDisabled(!valid))
+  }, [formValues])
 
 
   return (
