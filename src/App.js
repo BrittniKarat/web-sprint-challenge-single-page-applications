@@ -10,6 +10,9 @@ import axios from 'axios';
 import * as yup from 'yup';
 import schema from './Validation/formSchema';
 
+// importing styles
+import styled from 'styled-components';
+
 const pizzaOptions = {
   name: '',
   size: '',
