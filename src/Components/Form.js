@@ -13,28 +13,6 @@ const FormStyles = styled.div`
    margin: 1% 0;
    padding: 1% 0;
    width: 40%;
-
-   @media(max-width:1100px){
-      font-size: 2.3rem;
-      margin: 2% 0;
-      padding: 3.5% 0;
-      width: 60%;
-   }
-
-   @media(max-width:800px){
-       font-size: 2rem;
-       margin: 2% 0;
-       padding: 5% 0;
-       width: 67%; 
-   }
-
-   @media(max-width:500px){
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 3% 0;
-      padding: 5% 0;
-      width: 60%;
-   }
   
 `
 

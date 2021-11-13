@@ -3,7 +3,7 @@ const theme =  {
     secondaryColor: '#EFCB68',
     tertiaryColor: '#E1EFE6',
     tertiaryColorBG: '#160C28',
-    breakpointMobile: '(max-width: 550px)'
+    breakpointMobile: '(max-width: 550px)',
 }
 
 export default theme;

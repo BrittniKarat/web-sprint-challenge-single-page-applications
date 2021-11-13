@@ -4,7 +4,7 @@ import "./App.css";
 
 // Importing components
 import Form from './Components/Form';
-import Home from './Components/home';
+import FormDetails from './Components/FormDetails';
 
 // importing Schema, axios, and yup
 import axios from 'axios';
@@ -17,23 +17,27 @@ import styled from 'styled-components';
 const AppDiv = styled.div`
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  flex-direction: row;
   justify-content: space-between;
-  /* background-image: url('https://source.unsplash.com/exSEmuA7R7k');
-  background-size: cover;
-  background-repeat: no-repeat; */
-  
+  max-width: 100%;
+  text-decoration: none;
+  text-align: left;
 
   h1{
-    background-color: ${(pr) => pr.theme.tertiaryColorBG};
+    background-color: ${(pr) => pr.theme.tertiaryColor};
     color: ${(pr) => pr.theme.secondaryColor};
     font-size: 5rem;
     font-weight: bold;
     margin-top: 2%;
     padding: 1% 0;
     text-shadow: 2px 2px 4px ${(pr) => pr.theme.primaryColor};
+  }
+
+  .nav-links{
+    font-size: 3rem;
     
+    color:red
   }
 `
 
@@ -118,10 +122,9 @@ const App = () => {
           disabled={disabled}
           errors={formErrors} 
         />
+       { pizzas.map( ea => <FormDetails key={ea.id} details={ea}/>)
+        }
       </Route>
-      <div>
-        <p> Large letters</p>
-      </div>
     
     </AppDiv>
   );
