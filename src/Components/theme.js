@@ -1,8 +1,8 @@
 const theme =  {
-    primaryColor: '#ebcd76',
-    secondaryColor: '#6f2109',
-    tertiaryColor: '#a89c91',
-    tertiaryColorBG: 'rgb(179,196,215, 40%)',
+    primaryColor: '#AEB7B3',
+    secondaryColor: '#EFCB68',
+    tertiaryColor: '#E1EFE6',
+    tertiaryColorBG: '#160C28',
     breakpointMobile: '(max-width: 550px)'
 }
 

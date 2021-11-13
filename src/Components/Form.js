@@ -1,6 +1,42 @@
 import React from 'react';
+import styled from 'styled-components';
 
 
+const FormStyles = styled.div`
+   align-items: center;
+   background-color: ${pr => pr.theme.secondaryColor};
+   color: ${pr => pr.theme.primaryColor};
+   display: flex;
+   flex-direction: column;
+   font-size: 3rem;
+   justify-content: center;
+   margin: 1% 0;
+   padding: 1% 0;
+   width: 40%;
+
+   @media(max-width:1100px){
+      font-size: 2.3rem;
+      margin: 2% 0;
+      padding: 3.5% 0;
+      width: 60%;
+   }
+
+   @media(max-width:800px){
+       font-size: 2rem;
+       margin: 2% 0;
+       padding: 5% 0;
+       width: 67%; 
+   }
+
+   @media(max-width:500px){
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 3% 0;
+      padding: 5% 0;
+      width: 60%;
+   }
+  
+`
 
 export default function Form (props){
   const { formValues, change, submit, disabled, errors } = props;
@@ -17,7 +53,7 @@ export default function Form (props){
   }
 
     return(
-      <div> 
+      <FormStyles> 
         <h2> Create your pizza </h2>
         <form id='pizza-form' onSubmit={onSubmit}>
         <div className='errors'>{errors.name}</div>
@@ -116,7 +152,7 @@ export default function Form (props){
         </div>
        </form>
 
-      </div>  
+      </FormStyles>  
     )
 
 }

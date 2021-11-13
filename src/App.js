@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route } from 'react-router-dom';
+import "./App.css";
 
 // Importing components
 import Form from './Components/Form';
@@ -13,19 +14,29 @@ import schema from './Validation/formSchema';
 // importing styles
 import styled from 'styled-components';
 
-const MainStyles = styled.div`
-   align-items: center;
-   background-color: 'orange';
-   border-radius: 4px;
-   color: 'red' ;
-   display: flex;
-   font-size: 3rem;
-   justify-content: center;
-   margin: 1% 0;
-   padding: 1% 0;
-   width: 40%;
+const AppDiv = styled.div`
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  /* background-image: url('https://source.unsplash.com/exSEmuA7R7k');
+  background-size: cover;
+  background-repeat: no-repeat; */
   
+
+  h1{
+    background-color: ${(pr) => pr.theme.tertiaryColorBG};
+    color: ${(pr) => pr.theme.secondaryColor};
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 2%;
+    padding: 1% 0;
+    text-shadow: 2px 2px 4px ${(pr) => pr.theme.primaryColor};
+    
+  }
 `
+
 
 const pizzaOptions = {
   name: '',
@@ -85,19 +96,19 @@ const App = () => {
 
 
   return (
-    <MainStyles>
+    <AppDiv>
   
       <nav>
         <h1>Lambda Eats</h1>
         <div className='nav-links'>
           <Link to='/'>Home</Link>
-          <Link to='/pizza'>Pizza Plant</Link>
+          <p>Try the featured restaurant of the week!</p>
+          <Link to='/pizza'>  <b>Pizza Plant</b></Link>
         </div>
       </nav>
 
       <Route exact path='/'>
         <Home />
-        <Link to="/pizza" id='order-pizza'>Pizza Plant</Link>
       </Route>
       <Route path='/pizza'>
         <Form 
@@ -108,7 +119,11 @@ const App = () => {
           errors={formErrors} 
         />
       </Route>
-    </MainStyles>
+      <div>
+        <p> Large letters</p>
+      </div>
+    
+    </AppDiv>
   );
 };
 export default App;
