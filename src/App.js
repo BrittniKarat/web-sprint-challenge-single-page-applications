@@ -23,6 +23,7 @@ const AppDiv = styled.div`
   max-width: 100%;
   text-decoration: none;
   text-align: left;
+  color: black;
 
   h1{
     background-color: ${(pr) => pr.theme.tertiaryColor};
@@ -36,7 +37,6 @@ const AppDiv = styled.div`
 
   .nav-links{
     font-size: 3rem;
-    
     color:red
   }
 `

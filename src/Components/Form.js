@@ -13,6 +13,10 @@ const FormStyles = styled.div`
    margin: 1% 0;
    padding: 1% 0;
    width: 40%;
+
+   label{
+     color:black;
+   }
   
 `
 
