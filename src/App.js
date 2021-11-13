@@ -112,7 +112,6 @@ const App = () => {
       </nav>
 
       <Route exact path='/'>
-        <Home />
       </Route>
       <Route path='/pizza'>
         <Form 
@@ -122,8 +121,9 @@ const App = () => {
           disabled={disabled}
           errors={formErrors} 
         />
-       { pizzas.map( ea => <FormDetails key={ea.id} details={ea}/>)
-        }
+       { pizzas.map( ea => <FormDetails key={ea.id} details={ea} toppings={ea.toppings}/>)
+      }
+      {console.log(pizzas)}
       </Route>
     
     </AppDiv>

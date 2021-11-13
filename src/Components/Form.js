@@ -47,6 +47,7 @@ export default function Form (props){
             </label>
             <label> What size are we getting?
               <select name='size' value={formValues.size} onChange={onChange} id='size-dropdown'>
+                <option value='select'> Select </option>
                 <option value='personal'>Personal</option>
                 <option value='small'>Small</option>
                 <option value='medium'>Medium</option>

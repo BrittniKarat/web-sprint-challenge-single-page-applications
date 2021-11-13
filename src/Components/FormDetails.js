@@ -6,19 +6,16 @@ const FormDetails = (props) => {
     if(!details){
         return <h3>Confirming order ... </h3>
     }
+    
+    const { toppings } = props.details
 
+    const allToppings = toppings.map(ea => ea + ", ")
     return(
         
         <div>
             <h2>{details.name}</h2>
             <p> {details.size}</p>
-            <p> {details.mushrooms}</p>
-            <p> {details.blackOlives}</p>
-            <p> {details.onions}</p>
-            <p> {details.greenPeppers}</p>
-            <p> {details.spinach}</p>
-            <p> {details.zucchini}</p>
-            <p> {details.pineapple}</p>
+            <p> {allToppings}</p>
             <p> {details.special}</p>
 
         </div>
